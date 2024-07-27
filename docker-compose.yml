@@ -1,0 +1,39 @@
+services:
+  places:
+    build: .
+    image: places-image
+    container_name: places-container
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - place-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://place-db:5432/place_db
+      SPRING_DATASOURCE_USERNAME: place
+      SPRING_DATASOURCE_PASSWORD: place
+    networks:
+      - places-network
+
+  place-db:
+    image: postgres:14.4-alpine
+    container_name: place-db-container
+    restart: always
+    ports:
+      - 6546:5432
+    environment:
+      POSTGRES_DB: place_db
+      POSTGRES_USER: place
+      POSTGRES_PASSWORD: place
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - place-db:/var/lib/postgresql/data/pgdata
+    networks:
+      - places-network
+
+volumes:
+  place-db:
+    driver: local
+
+networks:
+  places-network:
