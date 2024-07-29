@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode
 @ToString
-@Builder(toBuilder = true)
+//@Builder(toBuilder = true) //todo нужен ли
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
