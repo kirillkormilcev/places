@@ -1,5 +1,6 @@
 package ru.aston.places.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import ru.aston.places.model.AttractionType;
@@ -11,8 +12,9 @@ import java.util.List;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AttractionFullResponse {
     Long id;
     String name;

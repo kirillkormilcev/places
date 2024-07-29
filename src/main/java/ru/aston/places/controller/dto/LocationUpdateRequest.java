@@ -1,9 +1,10 @@
 package ru.aston.places.controller.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -11,10 +12,10 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
-public class LocationResponse {
-    Long id;
-    String name;
+public class LocationUpdateRequest {
+    @Positive
+    @Min(10000L)
     Long population;
+    @NotNull
     Boolean hasMetro;
-    List<AttractionShortResponse> attractions;
 }

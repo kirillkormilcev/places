@@ -1,7 +1,10 @@
 package ru.aston.places.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -9,6 +12,11 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
-public class LocationShortResponse {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class LocationFullResponse {
+    Long id;
     String name;
+    Long population;
+    Boolean hasMetro;
+    List<AttractionShortResponse> attractions;
 }

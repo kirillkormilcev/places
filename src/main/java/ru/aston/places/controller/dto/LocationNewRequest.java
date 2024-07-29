@@ -24,5 +24,5 @@ public class LocationNewRequest {
     Long population;
     @NotNull
     Boolean hasMetro;
-    List<Long> attractionIds;
+    List<AttractionNewRequest> attractions;
 }

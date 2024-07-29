@@ -19,20 +19,20 @@ import java.util.List;
 @Table(name = "attraction")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @EqualsAndHashCode
 @ToString
-@Builder(toBuilder = true)
 public class Attraction {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "attraction_seq", allocationSize = 1)
+    @GeneratedValue(generator = "attraction_seq", strategy = GenerationType.SEQUENCE)
     Long id;
 
     @Column(length = 64, nullable = false)
     String name;
 
     @Column(nullable = false)
-    LocalDate created = LocalDate.now();
+    LocalDate created;
 
     @Column(length = 1024)
     String description;

@@ -1,7 +1,12 @@
 package ru.aston.places.service;
 
-import org.springframework.stereotype.Service;
+import ru.aston.places.controller.dto.LocationFullResponse;
+import ru.aston.places.controller.dto.LocationNewRequest;
+import ru.aston.places.controller.dto.LocationUpdateRequest;
 
-@Service
-public class LocationService {
+public interface LocationService extends Service<
+        LocationNewRequest,
+        LocationUpdateRequest,
+        LocationFullResponse,
+        Long> {
 }

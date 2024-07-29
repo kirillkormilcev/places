@@ -17,13 +17,13 @@ import java.util.List;
 @Table(name = "location")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @EqualsAndHashCode
 @ToString
-//@Builder(toBuilder = true) //todo нужен ли
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "location_seq", allocationSize = 1)
+    @GeneratedValue(generator = "location_seq", strategy = GenerationType.SEQUENCE)
     Long id;
 
     @Column(length = 64, nullable = false)
