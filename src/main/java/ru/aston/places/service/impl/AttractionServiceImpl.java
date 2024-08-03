@@ -9,7 +9,9 @@ import ru.aston.places.controller.dto.AttractionNewRequest;
 import ru.aston.places.controller.dto.AttractionShortResponse;
 import ru.aston.places.controller.dto.AttractionUpdateRequest;
 import ru.aston.places.controller.mapper.AttractionMapper;
+import ru.aston.places.model.Attraction;
 import ru.aston.places.model.AttractionParameters;
+import ru.aston.places.model.Location;
 import ru.aston.places.repository.AttractionRepository;
 import ru.aston.places.service.AttractionService;
 
@@ -24,7 +26,11 @@ public class AttractionServiceImpl implements AttractionService {
 
     @Override
     public AttractionFullResponse create(AttractionNewRequest dto) {
-        return null;
+        Attraction attraction = attractionRepository.save(
+            attractionMapper.attractionNewRequestToAttraction(dto));
+
+        attraction.setLocation(attractionRepository.findById(attraction.getId()).get().getLocation());
+        return attractionMapper.attractionToAttractionFullResponse(attraction);
     }
 
     @Override

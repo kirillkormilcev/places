@@ -20,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @EqualsAndHashCode
 @ToString
+@Builder
 public class Location {
     @Id
     @SequenceGenerator(name = "location_seq", allocationSize = 1)

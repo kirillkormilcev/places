@@ -26,7 +26,7 @@ public class LocationServiceImpl implements LocationService {
     public LocationFullResponse create(LocationNewRequest dto) {
         return locationMapper.locationToLocationFullResponse(
                 locationRepository.save(
-                        locationMapper.locationNewRequestToLocation(dto)));
+                    locationMapper.locationNewRequestToLocation(dto)));
     }
 
     @Override
@@ -45,11 +45,12 @@ public class LocationServiceImpl implements LocationService {
                 new NotFoundException("Location with id: " + id + " not found"));
         locationFromRepository.setPopulation(dto.getPopulation());
         locationFromRepository.setHasMetro(dto.getHasMetro());
-        return locationMapper.locationToLocationFullResponse(locationRepository.save(locationFromRepository));
+        return locationMapper.locationToLocationFullResponse(
+            locationRepository.save(locationFromRepository));
     }
 
     @Override
     public void delete(Long id) {
-        // TODO document why this method is empty
+        // for future realisation
     }
 }

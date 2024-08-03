@@ -1,7 +1,9 @@
 package ru.aston.places.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDate;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import ru.aston.places.model.AttractionType;
@@ -16,11 +18,12 @@ public class AttractionNewRequest {
     @NotNull
     @NotBlank
     String name;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    LocalDate created;
     @NotNull
     @NotBlank
     String description;
     @NotNull
-    @NotBlank
-    AttractionType type;
-    LocationNewRequest location;
+    AttractionType attractionType;
+    Long locationId;
 }

@@ -1,5 +1,6 @@
 package ru.aston.places.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -18,6 +19,7 @@ import java.util.List;
 public class AttractionFullResponse {
     Long id;
     String name;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     LocalDate created;
     String description;
     AttractionType attractionType;
