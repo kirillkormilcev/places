@@ -25,7 +25,7 @@ public interface AttractionMapper {
     AttractionShortResponse attractionToAttractionShortResponse(Attraction attraction);
 
     default Location mapLocationIdToLocation(Long locationId, @Context LocationRepository locationRepository) {
-        return locationRepository.findById(locationId).orElse(null);
+        return locationRepository.getReferenceById(locationId);
     }
 
     default LocationShortResponse mapLocationToLocationShortResponse(Location location) {
