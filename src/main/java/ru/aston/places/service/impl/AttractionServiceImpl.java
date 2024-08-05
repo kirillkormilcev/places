@@ -11,8 +11,8 @@ import ru.aston.places.controller.dto.AttractionUpdateRequest;
 import ru.aston.places.controller.mapper.AttractionMapper;
 import ru.aston.places.model.Attraction;
 import ru.aston.places.model.AttractionParameters;
-import ru.aston.places.model.Location;
 import ru.aston.places.repository.AttractionRepository;
+import ru.aston.places.repository.LocationRepository;
 import ru.aston.places.service.AttractionService;
 
 import java.util.List;
@@ -22,15 +22,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AttractionServiceImpl implements AttractionService {
     final AttractionRepository attractionRepository;
+    final LocationRepository locationRepository;
     static final AttractionMapper attractionMapper = AttractionMapper.INSTANCE;
 
     @Override
     public AttractionFullResponse create(AttractionNewRequest dto) {
-        Attraction attraction = attractionRepository.save(
-            attractionMapper.attractionNewRequestToAttraction(dto));
-
-        attraction.setLocation(attractionRepository.findById(attraction.getId()).get().getLocation());
-        return attractionMapper.attractionToAttractionFullResponse(attraction);
+        /*Attraction attraction = attractionRepository.save(
+            attractionMapper.attractionNewRequestToAttraction(dto, locationRepository));*/
+        return attractionMapper.attractionToAttractionFullResponse(attractionRepository.save(
+            attractionMapper.attractionNewRequestToAttraction(dto, locationRepository)));
     }
 
     @Override
