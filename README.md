@@ -36,3 +36,5 @@
 **Технологии:** Spring Boot, Hibernate, PostgreSQL, Liquibase, MapStruct.
 
 Упаковано Docker-compose в корне каталога.
+
+[Postman коллекция.](Aston places.postman_collection.json)

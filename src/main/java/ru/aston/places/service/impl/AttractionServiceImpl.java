@@ -59,8 +59,7 @@ public class AttractionServiceImpl implements AttractionService {
 
     @Override
     public AttractionFullResponse update(Long id, AttractionUpdateRequest dto) {
-        Attraction attractionFromRepository = attractionRepository.findById(id).orElseThrow(() ->
-            new NotFoundException("Attraction with id: " + id + " not found"));
+        Attraction attractionFromRepository = checkAttractionExistence(id);
         attractionFromRepository.setDescription(dto.getDescription());
         return attractionMapper.attractionToAttractionFullResponse(
             attractionRepository.save(attractionFromRepository));
@@ -68,6 +67,7 @@ public class AttractionServiceImpl implements AttractionService {
 
     @Override
     public void delete(Long id) {
+        checkAttractionExistence(id);
         attractionRepository.deleteById(id);
     }
 
@@ -97,5 +97,9 @@ public class AttractionServiceImpl implements AttractionService {
         List<Attraction> attractions = tq.getResultList();
         return attractions.stream().map(
             AttractionMapper.INSTANCE::attractionToAttractionShortResponse).toList();
+    }
+    private Attraction checkAttractionExistence(Long id) {
+        return attractionRepository.findById(id).orElseThrow(() ->
+            new NotFoundException("Attraction with id: " + id + " not found"));
     }
 }
