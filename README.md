@@ -37,4 +37,4 @@
 
 Упаковано Docker-compose в корне каталога.
 
-[Postman коллекция.](Aston places.postman_collection.json)
+Postman коллекция в корне каталога.

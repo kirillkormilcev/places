@@ -22,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @EqualsAndHashCode
 @ToString
+@Builder
 public class Attraction {
     @Id
     @SequenceGenerator(name = "attraction_seq", allocationSize = 1)

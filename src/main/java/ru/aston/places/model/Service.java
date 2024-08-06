@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @EqualsAndHashCode
 @ToString
-@Builder(toBuilder = true)
+@Builder
 public class Service {
     @Id
     @SequenceGenerator(name = "service_seq", allocationSize = 1)
