@@ -1,7 +1,6 @@
 package ru.aston.places.controller.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import ru.aston.places.controller.dto.LocationNewRequest;
 import ru.aston.places.controller.dto.LocationFullResponse;

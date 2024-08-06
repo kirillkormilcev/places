@@ -33,6 +33,6 @@
 - Добавить город
 - Изменение данных по городу (возможно изменение только полей: Численность населения, наличие метро)
 
-**Технологии:** Spring/Spring Boot, Hibernate, PostgreSQL, Liquibase.
+**Технологии:** Spring Boot, Hibernate, PostgreSQL, Liquibase, MapStruct.
 
-Упаковано Docker-compose.
+Упаковано Docker-compose в корне каталога.

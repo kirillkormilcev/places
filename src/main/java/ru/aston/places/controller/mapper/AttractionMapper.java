@@ -16,15 +16,23 @@ import ru.aston.places.repository.LocationRepository;
 public interface AttractionMapper {
     AttractionMapper INSTANCE = Mappers.getMapper(AttractionMapper.class);
 
-    @Mapping(source = "locationId", target = "location")
-    Attraction attractionNewRequestToAttraction(AttractionNewRequest attractionNewRequest, @Context LocationRepository locationRepository);
+    @Mapping(
+        source = "locationId",
+        target = "location")
+    Attraction attractionNewRequestToAttraction(
+        AttractionNewRequest attractionNewRequest,
+        @Context LocationRepository locationRepository);
 
-    @Mapping(target = "location", expression = "java(mapLocationToLocationShortResponse(attraction.getLocation()))")
+    @Mapping(
+        target = "location",
+        expression = "java(mapLocationToLocationShortResponse(attraction.getLocation()))")
     AttractionFullResponse attractionToAttractionFullResponse(Attraction attraction);
 
     AttractionShortResponse attractionToAttractionShortResponse(Attraction attraction);
 
-    default Location mapLocationIdToLocation(Long locationId, @Context LocationRepository locationRepository) {
+    default Location mapLocationIdToLocation(
+        Long locationId,
+        @Context LocationRepository locationRepository) {
         return locationRepository.getReferenceById(locationId);
     }
 

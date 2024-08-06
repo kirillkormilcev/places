@@ -29,11 +29,17 @@ public class LocationServiceImpl implements LocationService {
                     locationMapper.locationNewRequestToLocation(dto)));
     }
 
+    /**
+     * for future realization
+     * */
     @Override
     public LocationFullResponse findById(Long id) {
         return null;
     }
 
+    /**
+     * for future realization
+     * */
     @Override
     public List<LocationFullResponse> findAll() {
         return List.of();

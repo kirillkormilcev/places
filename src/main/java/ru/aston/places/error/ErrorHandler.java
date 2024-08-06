@@ -12,7 +12,6 @@ import ru.aston.places.error.exception.NotFoundException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
@@ -29,7 +28,10 @@ public class ErrorHandler {
 
     private List<String> logAndGetErrorsFromStackTrace(Exception e) {
         log.warn(e.getMessage(), e.getCause());
-        return Arrays.stream(ExceptionUtils.getRootCauseStackTrace(e)).filter(f -> f.contains("ru.aston.places"))
+        return Arrays.stream(
+            ExceptionUtils
+                .getRootCauseStackTrace(e))
+            .filter(f -> f.contains("ru.aston.places"))
                 .map(string -> {
                     if (string.contains("\t")) {
                         string = string.substring(1);

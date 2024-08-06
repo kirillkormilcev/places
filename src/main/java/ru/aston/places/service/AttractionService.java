@@ -1,6 +1,5 @@
 package ru.aston.places.service;
 
-import org.springframework.http.HttpStatusCode;
 import ru.aston.places.controller.dto.AttractionFullResponse;
 import ru.aston.places.controller.dto.AttractionNewRequest;
 import ru.aston.places.controller.dto.AttractionShortResponse;

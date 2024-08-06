@@ -17,6 +17,7 @@ import ru.aston.places.controller.dto.AttractionShortResponse;
 import ru.aston.places.controller.dto.AttractionUpdateRequest;
 import ru.aston.places.controller.mapper.AttractionMapper;
 import ru.aston.places.error.exception.IncorrectRequestParamException;
+import ru.aston.places.error.exception.NotFoundException;
 import ru.aston.places.model.Attraction;
 import ru.aston.places.model.AttractionParameters;
 import ru.aston.places.repository.AttractionRepository;
@@ -40,11 +41,17 @@ public class AttractionServiceImpl implements AttractionService {
             attractionMapper.attractionNewRequestToAttraction(dto, locationRepository)));
     }
 
+    /**
+     * for future realization
+     * */
     @Override
     public AttractionFullResponse findById(Long id) {
         return null;
     }
 
+    /**
+     * for future realization
+     * */
     @Override
     public List<AttractionFullResponse> findAll() {
         return List.of();
@@ -52,12 +59,16 @@ public class AttractionServiceImpl implements AttractionService {
 
     @Override
     public AttractionFullResponse update(Long id, AttractionUpdateRequest dto) {
-        return null;
+        Attraction attractionFromRepository = attractionRepository.findById(id).orElseThrow(() ->
+            new NotFoundException("Attraction with id: " + id + " not found"));
+        attractionFromRepository.setDescription(dto.getDescription());
+        return attractionMapper.attractionToAttractionFullResponse(
+            attractionRepository.save(attractionFromRepository));
     }
 
     @Override
     public void delete(Long id) {
-        // TODO document why this method is empty
+        attractionRepository.deleteById(id);
     }
 
     @Override
@@ -81,7 +92,7 @@ public class AttractionServiceImpl implements AttractionService {
         if (parameters.getLocation() != null) {
             predicates.add(cb.equal(root.get("location").get("name"), parameters.getLocation()));
         }
-        cq.where(predicates.toArray(new Predicate[predicates.size()]));
+        cq.where(predicates.toArray(new Predicate[0]));
         TypedQuery<Attraction> tq = em.createQuery(cq);
         List<Attraction> attractions = tq.getResultList();
         return attractions.stream().map(

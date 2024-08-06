@@ -40,13 +40,16 @@ public class AttractionController {
             @RequestParam(name = "filter", required = false) String filter,
             @RequestParam(name = "location", required = false) String location
     ) {
-        log.info("Обработка эндпойнта GET/attraction?sort={}&filter={}&location={}.", sort, filter, location);
+        log.info("Обработка эндпойнта GET/attraction?sort={}&filter={}&location={}.",
+            sort, filter, location);
         AttractionParameters parameters = AttractionParameters.builder()
                 .sort(sort)
                 .filter(filter)
                 .location(location)
                 .build();
-        return new ResponseEntity<>(attractionService.findAttractionsWith(parameters), HttpStatus.OK);
+        return new ResponseEntity<>(
+            attractionService.findAttractionsWith(parameters),
+            HttpStatus.OK);
     }
 
     @PatchMapping ("/{attractionId}")
@@ -54,7 +57,8 @@ public class AttractionController {
             @PathVariable Long attractionId,
             @Validated @RequestBody AttractionUpdateRequest dto
     ) {
-        log.info("Обработка эндпойнта PATCH/attraction/{}.(body: AttractionUpdateRequest)", attractionId);
+        log.info("Обработка эндпойнта PATCH/attraction/{}.(body: AttractionUpdateRequest)",
+            attractionId);
         return new ResponseEntity<>(attractionService.update(attractionId, dto), HttpStatus.OK);
     }
 
