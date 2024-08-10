@@ -14,6 +14,8 @@ import ru.aston.places.model.AttractionType;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@Builder
+@EqualsAndHashCode
 public class AttractionNewRequest {
     @NotNull
     @NotBlank
@@ -25,5 +27,6 @@ public class AttractionNewRequest {
     String description;
     @NotNull
     AttractionType attractionType;
+    @EqualsAndHashCode.Exclude
     Long locationId;
 }

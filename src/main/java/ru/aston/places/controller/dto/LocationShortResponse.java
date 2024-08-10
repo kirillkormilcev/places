@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
+@EqualsAndHashCode
 public class LocationShortResponse {
     String name;
 }

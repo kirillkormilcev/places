@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.aston.places.controller.dto.AttractionFullResponse;
@@ -27,15 +26,17 @@ public class AttractionController {
     final AttractionService attractionService;
 
     @PostMapping
-    public ResponseEntity<AttractionFullResponse> createAttraction(
+    @ResponseStatus(HttpStatus.CREATED)
+    public AttractionFullResponse createAttraction(
             @Validated @RequestBody AttractionNewRequest dto
             ) {
         log.info("Обработка эндпойнта POST/attraction/.(body: AttractionNewRequest)");
-        return new ResponseEntity<>(attractionService.create(dto), HttpStatus.CREATED);
+        return attractionService.create(dto);
     }
 
     @GetMapping
-    public ResponseEntity<List<AttractionShortResponse>> getAttractions(
+    @ResponseStatus(HttpStatus.OK)
+    public List<AttractionShortResponse> getAttractions(
             @RequestParam(name = "sort", required = false) String sort,
             @RequestParam(name = "filter", required = false) String filter,
             @RequestParam(name = "location", required = false) String location
@@ -47,27 +48,26 @@ public class AttractionController {
                 .filter(filter)
                 .location(location)
                 .build();
-        return new ResponseEntity<>(
-            attractionService.findAttractionsWith(parameters),
-            HttpStatus.OK);
+        return attractionService.findAttractionsWith(parameters);
     }
 
     @PatchMapping ("/{attractionId}")
-    public ResponseEntity<AttractionFullResponse> updateAttraction(
+    @ResponseStatus(HttpStatus.OK)
+    public AttractionFullResponse updateAttraction(
             @PathVariable Long attractionId,
             @Validated @RequestBody AttractionUpdateRequest dto
     ) {
         log.info("Обработка эндпойнта PATCH/attraction/{}.(body: AttractionUpdateRequest)",
             attractionId);
-        return new ResponseEntity<>(attractionService.update(attractionId, dto), HttpStatus.OK);
+        return attractionService.update(attractionId, dto);
     }
 
     @DeleteMapping("/{attractionId}")
-    public HttpStatus deleteAttraction(
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteAttraction(
             @PathVariable Long attractionId
     ) {
         log.info("Обработка эндпойнта DELETE/attraction/{}.", attractionId);
         attractionService.delete(attractionId);
-        return HttpStatus.NO_CONTENT;
     }
 }

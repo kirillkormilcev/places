@@ -16,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@EqualsAndHashCode
 public class AttractionFullResponse {
     Long id;
     String name;
@@ -23,6 +24,8 @@ public class AttractionFullResponse {
     LocalDate created;
     String description;
     AttractionType attractionType;
+    @EqualsAndHashCode.Exclude
     LocationShortResponse location;
+    @EqualsAndHashCode.Exclude
     List<ServiceShortResponse> services;
 }

@@ -12,6 +12,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@Builder
+@EqualsAndHashCode
 public class LocationUpdateRequest {
     @Positive
     @Min(10000L)

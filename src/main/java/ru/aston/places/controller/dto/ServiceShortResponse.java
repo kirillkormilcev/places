@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@EqualsAndHashCode
 public class ServiceShortResponse {
     String name;
     String description;

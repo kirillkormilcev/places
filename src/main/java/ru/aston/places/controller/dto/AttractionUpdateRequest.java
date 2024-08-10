@@ -11,6 +11,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@Builder
+@EqualsAndHashCode
 public class AttractionUpdateRequest {
     @NotNull
     @NotBlank

@@ -10,6 +10,7 @@ import ru.aston.places.model.AttractionType;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
+@EqualsAndHashCode
 public class AttractionShortResponse {
     String name;
     AttractionType attractionType;

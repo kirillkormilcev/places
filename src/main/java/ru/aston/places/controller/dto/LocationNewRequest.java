@@ -15,6 +15,8 @@ import java.util.List;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
+@Builder
+@EqualsAndHashCode
 public class LocationNewRequest {
     @NotNull
     @NotBlank
@@ -24,5 +26,6 @@ public class LocationNewRequest {
     Long population;
     @NotNull
     Boolean hasMetro;
+    @EqualsAndHashCode.Exclude
     List<AttractionNewRequest> attractions;
 }

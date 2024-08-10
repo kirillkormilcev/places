@@ -1,13 +1,14 @@
 package ru.aston.places;
 
 import java.time.LocalDate;
+import java.util.List;
 import ru.aston.places.model.Attraction;
 import ru.aston.places.model.AttractionType;
 import ru.aston.places.model.Location;
 
-public class MockTestEntityData {
+public class MockEntity {
 
-  private MockTestEntityData() {}
+  private MockEntity() {}
 
   public static final Location location1 = Location.builder()
       .id(1L)
@@ -86,4 +87,8 @@ public class MockTestEntityData {
       .attractionType(AttractionType.PARK)
       .location(location1)
       .build();
+
+  public static final List<Attraction> attractionsMuseumForMoscow =
+      List.of(attraction2);
+
 }

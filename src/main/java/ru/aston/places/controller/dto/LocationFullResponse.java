@@ -13,10 +13,12 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@EqualsAndHashCode
 public class LocationFullResponse {
     Long id;
     String name;
     Long population;
     Boolean hasMetro;
+    @EqualsAndHashCode.Exclude
     List<AttractionShortResponse> attractions;
 }
