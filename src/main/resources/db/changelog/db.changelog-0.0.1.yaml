@@ -1,0 +1,164 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: kirill kormilcev
+      changes:
+        - createTable:
+
+            tableName: attraction
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created
+                  type: date
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: attraction_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: location_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(64)
+              - column:
+                  name: description
+                  type: VARCHAR(1024)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: attraction_type
+                  type: VARCHAR(255)
+
+        - createSequence:
+            sequenceName: attraction_seq
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            startValue: 1
+
+        - createTable:
+            tableName: location
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: has_metro
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: location_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: population
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(64)
+
+        - createSequence:
+            sequenceName: location_seq
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            startValue: 1
+
+        - createTable:
+            tableName: service
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: service_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(64)
+              - column:
+                  name: description
+                  type: VARCHAR(1024)
+
+        - createSequence:
+            sequenceName: service_seq
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            startValue: 1
+
+        - createTable:
+            tableName: services_attractions
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: attraction_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: service_id
+                  type: BIGINT
+
+        - addForeignKeyConstraint:
+            baseColumnNames: service_id
+            baseTableName: services_attractions
+            constraintName: fk_sa_s
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: service
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: location_id
+            baseTableName: attraction
+            constraintName: fk_a_l
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: location
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: attraction_id
+            baseTableName: services_attractions
+            constraintName: fk_sa_a
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: attraction
+            validate: true

@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "102f075b-3d7c-4d56-b196-06c8252b3b26",
+		"name": "Aston places",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21578445"
+	},
+	"item": [
+		{
+			"name": "location",
+			"item": [
+				{
+					"name": "New Location Kazan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kazan\",\r\n    \"population\": 1000000,\r\n    \"hasMetro\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/location",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Location",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"population\": 1100000,\r\n    \"hasMetro\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/location/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"location",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Location Moscow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Moscow\",\r\n    \"population\": 9000000,\r\n    \"hasMetro\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/location",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attraction",
+			"item": [
+				{
+					"name": "New Attraction Kremlin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kremlin\",\r\n    \"created\": \"01-01-1200\",\r\n    \"description\": \"Казанский кремль\",\r\n    \"attractionType\": \"PALACE\",\r\n    \"locationId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Attraction Gorky Park",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gorky Park\",\r\n    \"created\": \"01-01-1980\",\r\n    \"description\": \"Парк Горького\",\r\n    \"attractionType\": \"PARK\",\r\n    \"locationId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Attraction National Museum",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"National Museum\",\r\n    \"created\": \"01-01-1970\",\r\n    \"description\": \"Национальный музей РТ\",\r\n    \"attractionType\": \"MUSEUM\",\r\n    \"locationId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Attraction National Museum",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Национальный музей Республики Татарстан\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction/3",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Attraction VDNKH",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"VDNKH\",\r\n    \"created\": \"01-01-1936\",\r\n    \"description\": \"Выставка достижений народного хозяйства\",\r\n    \"attractionType\": \"MUSEUM\",\r\n    \"locationId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attractions sorted by name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction?sort=NAME",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "NAME"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attractions filter by type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction?filter=MUSEUM",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "MUSEUM"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attractions for location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction?location=Kazan",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "Kazan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attractions sorted, filter and location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction?location=Moscow&filter=MUSEUM&sort=NAME",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "Moscow"
+								},
+								{
+									"key": "filter",
+									"value": "MUSEUM"
+								},
+								{
+									"key": "sort",
+									"value": "NAME"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attraction",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"VDNKH\",\r\n    \"created\": \"01-01-1936\",\r\n    \"description\": \"Выставка достижений народного хозяйства\",\r\n    \"attractionType\": \"MUSEUM\",\r\n    \"locationId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/attraction/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"attraction",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
